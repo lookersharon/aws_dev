@@ -1,7 +1,6 @@
 connection: "internal"
 include: "//looker_fruit_basket/*.explore.lkml"
 
-# This test failed on 02/14/2020 08:25:18!
 test: check_fruit {
   explore_source: performance {
     column: name {
@@ -9,8 +8,8 @@ test: check_fruit {
     }
     limit: 1
   }
-  assert: the_first_fruit_is_an_orange {
-    expression: ${fruit.name} = "orange" ;;
+  assert: the_first_fruit_is_an_apple {
+    expression: ${fruit.name} = "apple" ;;
   }
 }
 
