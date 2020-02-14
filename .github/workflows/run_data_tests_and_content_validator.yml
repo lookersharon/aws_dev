@@ -56,6 +56,7 @@ jobs:
       if: failure()
       run: |
         cd working
+        git tag -d ci
         git add *
         git commit -am "ci: Automatically annotated failed test"
         git tag -m "ci should ignore this commit" ci `git rev-parse HEAD`
