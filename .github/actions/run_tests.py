@@ -11,7 +11,7 @@ def main():
     
     """ Check out this branch """
     branch = sys.argv[1].replace("refs/heads/","")
-    resp = sdk.update_git_branch(project_id="my_fruit_basket2", body=models.WriteGitBranch(name=branch)
+    resp = sdk.update_git_branch(project_id="my_fruit_basket2", body=models.WriteGitBranch(name=branch))
     print(resp)
     broken_content_dev = sdk.content_validation().content_with_errors
 
