@@ -11,7 +11,8 @@ def main():
     sdk.update_session(models.WriteApiSession(workspace_id='dev'))
     
     """ Check out this branch """
-    sdk.update_git_branch(project_id="my_fruit_basket2", body=models.WriteGitBranch(name=sys.argv[1]))
+    branch = sys.argv[1].replace("refs/heads/","")
+    sdk.update_git_branch(project_id="my_fruit_basket2", body=models.WriteGitBranch(name=branch)
 
     broken_content_dev = sdk.content_validation().content_with_errors
 
