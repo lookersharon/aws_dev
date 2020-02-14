@@ -3,8 +3,8 @@ on:
   push:
     branches:    
     - 'dev-looker-*'
-    tags:
-    - '!ci'
+    tags-ignore:
+    - 'ci'
 env:
   LOOKERSDK_API_VERSION: ${{ secrets.LOOKERSDK_API_VERSION }}
   LOOKERSDK_BASE_URL: ${{ secrets.LOOKERSDK_BASE_URL }}
