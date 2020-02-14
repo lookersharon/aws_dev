@@ -14,7 +14,7 @@ test: check_fruit {
 }
 
 explore: performance {
-  label: "Fruit2"
+  label: "Fruit3"
   view_name: fruit
   extends: [fruit]
   hidden: no
