@@ -4,6 +4,7 @@ import sys
 sdk = client.setup()
 
 def main():
+    print(sys.argv)
     broken_content_prod = sdk.content_validation().content_with_errors
     
     """Enter dev mode """
