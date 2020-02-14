@@ -44,16 +44,16 @@ jobs:
         git config --global user.name "GitHub Action"
         git config --global core.editor "vi"
         mkdir working
-        cd working
-        git clone git@github.com:${{ github.repository }}.git .
-        git checkout `echo "${{ github.ref }}" | sed 's/refs\/heads\///'`
+        #cd working
+        #git clone git@github.com:${{ github.repository }}.git .
+        #git checkout `echo "${{ github.ref }}" | sed 's/refs\/heads\///'`
     - name: Run data tests and content validator
       run: |
         python .github/actions/run_data_tests_and_content_validator.py ${{ github.ref }} ${{ secrets.PROJECT_ID }}
     - name: Commit test annotations
       if: failure() && contains(github.event.head_commit.message, 'Automatically annotated failed test') == false
       run: |
-        cd working
+        #cd working
         git add *
         git commit -am "ci: Automatically annotated failed test"
         git push -u origin `echo "${{ github.ref }}" | sed 's/refs\/heads\///'`
