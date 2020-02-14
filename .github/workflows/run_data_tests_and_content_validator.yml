@@ -13,7 +13,7 @@ env:
   LOOKERSDK_VERIFY_SSL: ${{ secrets.LOOKERSDK_VERIFY_SSL }}
 
 jobs:
-  run_looker_data_tests_and_content_validator:
+  run:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -27,6 +27,6 @@ jobs:
         ls -la
         python -m pip install --upgrade pip
         pip install -r .github/actions/requirements.txt
-    - name: Run test
+    - name: Run data tests and content validator
       run: |
         python .github/actions/run_tests.py ${{ github.ref }} ${{ secrets.PROJECT_ID }}
