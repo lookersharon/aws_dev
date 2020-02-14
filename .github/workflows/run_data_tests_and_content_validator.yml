@@ -57,6 +57,7 @@ jobs:
         cd working
         git status
         git add *
-        git commit -m "ci: Automatically annotated failed test" -a | exit 0
+        git status
+        git commit -am "ci: Automatically annotated failed test"
         git push -u origin `echo "${{ github.ref }}" | sed 's/refs\/heads\///'`
         
