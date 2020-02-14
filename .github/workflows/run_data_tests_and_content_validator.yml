@@ -13,7 +13,6 @@ env:
 
 jobs:
   start:
-    if: contains(github.event.head_commit.message, 'ci: ') == false
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -52,7 +51,7 @@ jobs:
       run: |
         python .github/actions/run_data_tests_and_content_validator.py ${{ github.ref }} ${{ secrets.PROJECT_ID }}
     - name: Commit test annotations
-      if: failure()
+      if: failure() &&contains(github.event.head_commit.message, 'ci: ') == false
       run: |
         cd working
         git add *
