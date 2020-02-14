@@ -28,7 +28,7 @@ jobs:
     - name: Deploy to production
       run: |
         rm -rf .git .github
-        ls -ltra
+        ls -ltr
         scp -r -C -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa `pwd`/ ubuntu@ec2-44-229-2-167.us-west-2.compute.amazonaws.com:/home/ubuntu
         ssh -i ~/.ssh/id_rsa ubuntu@ec2-44-229-2-167.us-west-2.compute.amazonaws.com "sudo -H -u looker bash -c 'cp -Rav /home/ubuntu/$(basename $(pwd))/* /home/looker/looker/models/production; cp -Rav /home/ubuntu/$(basename $(pwd))/* /home/looker/looker/models-user-1/production'"
         ssh -i ~/.ssh/id_rsa ubuntu@ec2-44-229-2-167.us-west-2.compute.amazonaws.com "rm -rf $(basename $(pwd))"
