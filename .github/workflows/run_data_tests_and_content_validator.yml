@@ -51,7 +51,12 @@ jobs:
       continue-on-error: true
       run: |
         python .github/actions/run_data_tests_and_content_validator.py ${{ github.ref }} ${{ secrets.PROJECT_ID }}
+    - name: Commit annotations
+      if: failure()
+      run: |
         cd working
+        git status
         git add *
         git commit -m "ci: Automatically annotated failed test" -a | exit 0
-        git push -u origin ${{ github.ref }}
+        git push -u origin `echo "${{ github.ref }}" | sed 's/refs\/heads\///'`
+        
