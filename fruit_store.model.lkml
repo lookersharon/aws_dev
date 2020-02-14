@@ -2,6 +2,7 @@ connection: "internal"
 include: "//looker_fruit_basket/*.explore.lkml"
 
 # This test failed on 02/14/2020 07:00:49!
+# This test failed on 02/14/2020 07:01:28!
 test: check_fruit {
   explore_source: performance {
     column: name {
