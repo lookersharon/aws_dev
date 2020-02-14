@@ -27,4 +27,6 @@ jobs:
         ssh-add
     - name: Deploy to production
       run: |
+        pwd
+        ls -ltra
         scp -v -r -i ~/.ssh/id_rsa . ubuntu@ec2-44-229-2-167.us-west-2.compute.amazonaws.com:/home/looker/looker/models/production/
