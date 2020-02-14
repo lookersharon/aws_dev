@@ -2,7 +2,7 @@ name: Run Looker Data Tests and Content Validator
 on:
   push:
     branches:    
-      - 'dev-looker*'
+    - 'dev-looker-**'
 
 jobs:
   looker_tests:
