@@ -29,4 +29,4 @@ jobs:
         pip install -r .github/actions/requirements.txt
     - name: Run data tests and content validator
       run: |
-        python .github/actions/run_tests.py ${{ github.ref }} ${{ secrets.PROJECT_ID }}
+        python .github/actions/run_data_tests_and_content_validator.py ${{ github.ref }} ${{ secrets.PROJECT_ID }}
