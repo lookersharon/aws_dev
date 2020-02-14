@@ -47,11 +47,9 @@ jobs:
         cd working
         git clone git@github.com:${{ github.repository }}.git .
         git checkout `echo "${{ github.ref }}" | sed 's/refs\/heads\///'`
-    - name: Run data tests and content validator
+    - name: Run data tests and content validator and commit annotations
       run: |
         python .github/actions/run_data_tests_and_content_validator.py ${{ github.ref }} ${{ secrets.PROJECT_ID }}
-    - name: Commit test annotations
-      run: |
         cd working
         git add *
         git commit -m "ci: Automatically annotated failed test" -a | exit 0
