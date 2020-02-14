@@ -13,7 +13,7 @@ env:
   LOOKERSDK_VERIFY_SSL: ${{ secrets.LOOKERSDK_VERIFY_SSL }}
 
 jobs:
-  looker_tests:
+  run_looker_data_tests_and_content_validator:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
