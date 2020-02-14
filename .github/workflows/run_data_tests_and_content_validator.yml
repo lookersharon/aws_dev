@@ -47,11 +47,10 @@ jobs:
         cd working
         git clone git@github.com:${{ github.repository }}.git .
         git checkout `echo "${{ github.ref }}" | sed 's/refs\/heads\///'`
-    - name: Run data tests and content validator and commit annotations
-      continue-on-error: true
+    - name: Run data tests and content validator
       run: |
         python .github/actions/run_data_tests_and_content_validator.py ${{ github.ref }} ${{ secrets.PROJECT_ID }}
-    - name: Commit annotations
+    - name: Commit test annotations
       if: failure()
       run: |
         cd working
