@@ -49,15 +49,12 @@ jobs:
         git checkout `echo "${{ github.ref }}" | sed 's/refs\/heads\///'`
     - name: Run data tests and content validator
       run: |
-        pwd
         python .github/actions/run_data_tests_and_content_validator.py ${{ github.ref }} ${{ secrets.PROJECT_ID }}
     - name: Commit test annotations
       if: failure()
       run: |
         cd working
-        git status
         git add *
-        git status
         git commit -am "ci: Automatically annotated failed test"
         git push -u origin `echo "${{ github.ref }}" | sed 's/refs\/heads\///'`
         
