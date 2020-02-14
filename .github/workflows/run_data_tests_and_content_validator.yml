@@ -3,8 +3,8 @@ on:
   push:
     branches:    
     - 'dev-looker-*'
-    tags-ignore:
-    - ci
+    tags:
+    - '!ci'
 env:
   LOOKERSDK_API_VERSION: ${{ secrets.LOOKERSDK_API_VERSION }}
   LOOKERSDK_BASE_URL: ${{ secrets.LOOKERSDK_BASE_URL }}
@@ -61,5 +61,5 @@ jobs:
         git tag -d ci
         git tag -m "ci should ignore this commit" ci `git rev-parse HEAD`
         git push --force origin refs/tags/ci:refs/tags/ci
-        #git push -u origin `echo "${{ github.ref }}" | sed 's/refs\/heads\///'`
+        git push -u origin `echo "${{ github.ref }}" | sed 's/refs\/heads\///'`
         
