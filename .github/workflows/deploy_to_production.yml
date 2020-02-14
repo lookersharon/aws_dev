@@ -1,18 +1,18 @@
-name: CI
+name: Deploy to Production
 
 on:
   push:
     branches:    
-      - 'releases/**'  # Push events to branches matching refs/heads/releases/*
+      - 'release**'  # Push events to branches matching refs/heads/releases/*
 
 jobs:
-  build:
+  start:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: Run a multi-line script
+    - name: Deploy to production
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
