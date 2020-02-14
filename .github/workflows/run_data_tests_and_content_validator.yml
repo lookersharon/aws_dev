@@ -59,5 +59,5 @@ jobs:
         git add *
         git commit -am "ci: Automatically annotated failed test"
         git tag -m "ci should ignore this commit" ci `git rev-parse HEAD`
-        git push -u origin `echo "${{ github.ref }}" | sed 's/refs\/heads\///'`
+        #git push -u origin `echo "${{ github.ref }}" | sed 's/refs\/heads\///'`
         
