@@ -30,6 +30,6 @@ jobs:
         rm -rf .git .github
         ls -ltr
         scp -r -C -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa `pwd`/ ubuntu@ec2-44-229-2-167.us-west-2.compute.amazonaws.com:/home/ubuntu
-        ssh -i ~/.ssh/id_rsa ubuntu@ec2-44-229-2-167.us-west-2.compute.amazonaws.com "sudo -H -u looker bash -c 'cp -Rav /home/ubuntu/$(basename $(pwd))/* /home/looker/looker/models/production; cp -Rav /home/ubuntu/$(basename $(pwd))/* /home/looker/looker/models-user-1/production'"
+        ssh -i ~/.ssh/id_rsa ubuntu@ec2-44-229-2-167.us-west-2.compute.amazonaws.com "sudo -H -u looker bash -c 'cp -Rav /home/ubuntu/$(basename $(pwd))/* /home/looker/looker/models/production; cd /home/looker/looker/models/production; git config --global user.email \"action@github.com\"; git config --global user.name \"GitHub Action\"; git commit -am \"Deploy\"; git push -u origin master'"
         ssh -i ~/.ssh/id_rsa ubuntu@ec2-44-229-2-167.us-west-2.compute.amazonaws.com "rm -rf $(basename $(pwd))"
         curl -s -k https://ec2-44-229-2-167.us-west-2.compute.amazonaws.com:9999/webhooks/projects/production/deploy
