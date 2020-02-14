@@ -9,6 +9,7 @@ include: "//looker_fruit_basket/*.explore.lkml"
 # This test failed on 02/14/2020 07:03:14!
 # This test failed on 02/14/2020 07:03:29!
 # This test failed on 02/14/2020 07:03:49!
+# This test failed on 02/14/2020 07:03:58!
 test: check_fruit {
   explore_source: performance {
     column: name {
