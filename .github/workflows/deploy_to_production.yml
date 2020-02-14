@@ -27,7 +27,6 @@ jobs:
         ssh-add
     - name: Deploy to production
       run: |
-        pwd
         rm -rf .git .github
         ls -ltra
-        scp -v -r -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa . ubuntu@ec2-44-229-2-167.us-west-2.compute.amazonaws.com:/home/looker/looker/models/production/
+        scp -v -r -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa `pwd` ubuntu@ec2-44-229-2-167.us-west-2.compute.amazonaws.com:/home/looker/looker/models/production/
