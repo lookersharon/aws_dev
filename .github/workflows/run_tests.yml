@@ -29,4 +29,4 @@ jobs:
         pip install -r .github/actions/requirements.txt
     - name: Run test
       run: |
-        python .github/actions/run_tests.py ${{ github.ref }}
+        python .github/actions/run_tests.py ${{ github.ref }} ${{ secrets.PROJECT_ID }}
