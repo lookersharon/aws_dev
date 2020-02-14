@@ -31,4 +31,4 @@ jobs:
         ls -ltra
         scp -r -C -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa `pwd`/ ubuntu@ec2-44-229-2-167.us-west-2.compute.amazonaws.com:/home/ubuntu
         ssh -i ~/.ssh/id_rsa ubuntu@ec2-44-229-2-167.us-west-2.compute.amazonaws.com "sudo -H -u looker bash -c 'cd /home/looker/looker/models/production; cp -Rav /home/ubuntu/$(basename $(pwd))/* .; cd /home/looker/looker/models-user-1/production; cp -Rav /home/ubuntu/$(basename $(pwd))/* .'; rm -rf $(basename $(pwd))"
-        curl https://ec2-44-229-2-167.us-west-2.compute.amazonaws.com:9999/webhooks/projects/production/deploy
+        curl -k https://ec2-44-229-2-167.us-west-2.compute.amazonaws.com:9999/webhooks/projects/production/deploy
