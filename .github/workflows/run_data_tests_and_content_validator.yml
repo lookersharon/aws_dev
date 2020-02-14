@@ -46,7 +46,7 @@ jobs:
         mkdir my-fruit-basket
         cd my-fruit-basket
         git clone git@github.com:drewgillson/my_fruit_basket.git .
-        git checkout `echo "refs/heads/${{ github.ref }}" | sed 's/refs\/head\///'`
+        git checkout `echo "${{ github.ref }}" | sed 's/refs\/heads\///'`
     - name: Run data tests and content validator
       run: |
         python .github/actions/run_data_tests_and_content_validator.py ${{ github.ref }} ${{ secrets.PROJECT_ID }}
