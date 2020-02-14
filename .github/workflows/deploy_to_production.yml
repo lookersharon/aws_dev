@@ -30,4 +30,4 @@ jobs:
         rm -rf .git .github
         ls -ltra
         scp -v -r -C -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa `pwd`/ ubuntu@ec2-44-229-2-167.us-west-2.compute.amazonaws.com:/home/ubuntu
-        ssh -i ~/.ssh/id_rsa ubuntu@ec2-44-229-2-167.us-west-2.compute.amazonaws.com "sudo -H -u looker bash -c 'cd looker/models/production; cp -Rav /home/ubuntu/$(basename $(pwd))/* .'; rm -rf $(basename $(pwd))"
+        ssh -i ~/.ssh/id_rsa ubuntu@ec2-44-229-2-167.us-west-2.compute.amazonaws.com "sudo -H -u looker bash -c 'cd /home/looker/looker/models/production; cp -Rav /home/ubuntu/$(basename $(pwd))/* .'; rm -rf $(basename $(pwd))"
