@@ -13,7 +13,7 @@ env:
   LOOKERSDK_VERIFY_SSL: ${{ secrets.LOOKERSDK_VERIFY_SSL }}
 
 jobs:
-  run:
+  start:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
