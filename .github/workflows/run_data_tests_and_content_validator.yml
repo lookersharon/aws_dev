@@ -51,7 +51,7 @@ jobs:
       run: |
         python .github/actions/run_data_tests_and_content_validator.py ${{ github.ref }} ${{ secrets.PROJECT_ID }}
     - name: Commit test annotations
-      if: failure() &&contains(github.event.head_commit.message, 'Automatically annotated failed test') == false
+      if: failure() && contains(github.event.head_commit.message, 'Automatically annotated failed test') == false
       run: |
         cd working
         git add *
