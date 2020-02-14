@@ -4,20 +4,19 @@ on:
     branches:    
     - 'dev-looker-*'
 
+env:
+  LOOKERSDK_API_VERSION: ${{ secrets.LOOKERSDK_API_VERSION }}
+  LOOKERSDK_BASE_URL: ${{ secrets.LOOKERSDK_BASE_URL }}
+  LOOKERSDK_CLIENT_ID: ${{ secrets.LOOKERSDK_CLIENT_ID }}
+  LOOKERSDK_CLIENT_SECRET: ${{ secrets.LOOKERSDK_CLIENT_SECRET }}
+  LOOKERSDK_TIMEOUT: ${{ secrets.LOOKERSDK_TIMEOUT }}
+  LOOKERSDK_VERIFY_SSL: ${{ secrets.LOOKERSDK_VERIFY_SSL }}
+
 jobs:
   looker_tests:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Set environment variables
-      env:
-        LOOKERSDK_API_VERSION: ${{ secrets.LOOKERSDK_API_VERSION }}
-        LOOKERSDK_BASE_URL: ${{ secrets.LOOKERSDK_BASE_URL }}
-        LOOKERSDK_CLIENT_ID: ${{ secrets.LOOKERSDK_CLIENT_ID }}
-        LOOKERSDK_CLIENT_SECRET: ${{ secrets.LOOKERSDK_CLIENT_SECRET }}
-        LOOKERSDK_TIMEOUT: ${{ secrets.LOOKERSDK_TIMEOUT }}
-        LOOKERSDK_VERIFY_SSL: ${{ secrets.LOOKERSDK_VERIFY_SSL }}
-      run: echo $LOOKERSDK_VERIFY_SSL
     - name: Set up Python
       uses: actions/setup-python@v1
       with:
