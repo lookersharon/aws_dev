@@ -3,7 +3,8 @@ on:
   push:
     branches:    
     - 'dev-looker-*'
-
+    tags-ignore:
+    - ci
 env:
   LOOKERSDK_API_VERSION: ${{ secrets.LOOKERSDK_API_VERSION }}
   LOOKERSDK_BASE_URL: ${{ secrets.LOOKERSDK_BASE_URL }}
@@ -56,5 +57,6 @@ jobs:
         cd working
         git add *
         git commit -am "ci: Automatically annotated failed test"
-        #git push -u origin `echo "${{ github.ref }}" | sed 's/refs\/heads\///'`
+        git tag -a ci `git rev-parse HEAD`
+        git push -u origin `echo "${{ github.ref }}" | sed 's/refs\/heads\///'`
         
