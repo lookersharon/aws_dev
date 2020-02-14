@@ -58,6 +58,6 @@ jobs:
         cd working
         git add *
         git commit -am "ci: Automatically annotated failed test"
-        git tag -a ci `git rev-parse HEAD`
+        git tag -am ci `git rev-parse HEAD`
         git push -u origin `echo "${{ github.ref }}" | sed 's/refs\/heads\///'`
         
