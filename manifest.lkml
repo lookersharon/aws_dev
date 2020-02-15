@@ -1,5 +1,5 @@
 remote_dependency: looker_fruit_basket {
   url: "https://github.com/drewgillson/looker-fruit-basket.git"
   #automatically_track_hub: yes
-  ref: "8eea1ea73c4e12218561d63413202f1fba6d7413"
+  ref: "3e2a2afe32cc8c6efcd9b792a97a341c6e947a14"
 }
