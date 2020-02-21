@@ -15,7 +15,6 @@ test: check_fruit {
 
 explore: fruit_ext {
   label: "Fruit"
-  view_name: fruit
   group_label: "Spoke"
   extends: [fruit]
   hidden: no
